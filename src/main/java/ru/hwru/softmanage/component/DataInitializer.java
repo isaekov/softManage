@@ -31,10 +31,10 @@ public class DataInitializer implements CommandLineRunner {
         // Создаём роли, если их нет
         Role adminRole = roleRepository.findByName("ADMIN")
                 .orElseGet(() -> roleRepository.save(new Role("ADMIN")));
-//        Role pmRole = roleRepository.findByName("PROJECT_MANAGER")
-//                .orElseGet(() -> roleRepository.save(new Role("PROJECT_MANAGER")));
-//        Role devRole = roleRepository.findByName("DEVELOPER")
-//                .orElseGet(() -> roleRepository.save(new Role("DEVELOPER")));
+        Role pmRole = roleRepository.findByName("PROJECT_MANAGER")
+                .orElseGet(() -> roleRepository.save(new Role("PROJECT_MANAGER")));
+        Role devRole = roleRepository.findByName("DEVELOPER")
+                .orElseGet(() -> roleRepository.save(new Role("DEVELOPER")));
 
 
         // Проверяем, есть ли уже главный пользователь

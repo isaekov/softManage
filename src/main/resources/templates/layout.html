@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml">
+<html lang="ru" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/header :: head"></head>
 
 <body class="hold-transition sidebar-mini">
@@ -10,12 +11,12 @@
     <div th:replace="fragments/header :: header"></div>
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-gray-dark elevation-4">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
-            <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        <a href="/" class="brand-link">
+            <img src="dist/img/boxed-bg.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
+            <span class="brand-text font-weight-light">SoftManage</span>
         </a>
 
         <!-- Sidebar -->
@@ -23,25 +24,14 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    <img src="/cub.jpeg" class="img-circle elevation-4" alt="User Image">
                 </div>
                 <div class="info" sec:authorize="isAuthenticated()">
                     <a href="#" class="d-block"> Привет, <span sec:authentication="principal.fullName"></span></a>
                 </div>
             </div>
 
-            <!-- SidebarSearch Form -->
-            <div class="form-inline">
-                <div class="input-group" data-widget="sidebar-search">
-                    <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                           aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-sidebar">
-                            <i class="fas fa-search fa-fw"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
@@ -49,38 +39,47 @@
                     data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                    <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Starter Pages
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Active Page</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Inactive Page</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="/" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
-                                Simple Link
-                                <span class="right badge badge-danger">New</span>
+                                Главная
+<!--                                <span class="right badge badge-danger">New</span>-->
                             </p>
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{/users}" sec:authorize="hasAnyRole('ADMIN')" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Пользователи
+<!--                                <span class="right badge badge-danger">New</span>-->
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{/projects}" sec:authorize="hasAnyRole('ADMIN','MANAGER','DEVELOPER')" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Проекты
+<!--                                <span class="right badge badge-danger">New</span>-->
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{/tasks}" sec:authorize="hasRole('DEVELOPER')" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Задачи
+<!--                                <span class="right badge badge-danger">New</span>-->
+                            </p>
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -93,23 +92,23 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Starter Page</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Starter Page</li>
-                        </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
+<!--                <div class="row mb-2">-->
+<!--                    <div class="col-sm-6">-->
+<!--                        <h1 class="m-0">Starter Page</h1>-->
+<!--                    </div>&lt;!&ndash; /.col &ndash;&gt;-->
+<!--                    <div class="col-sm-6">-->
+<!--                        <ol class="breadcrumb float-sm-right">-->
+<!--                            <li class="breadcrumb-item"><a href="#">Home</a></li>-->
+<!--                            <li class="breadcrumb-item active">Starter Page</li>-->
+<!--                        </ol>-->
+<!--                    </div>&lt;!&ndash; /.col &ndash;&gt;-->
+<!--                </div>&lt;!&ndash; /.row &ndash;&gt;-->
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
 
         <!-- Main content -->
-        <div class="content">
+        <div class="content dark">
             <div class="container-fluid">
                 <div layout:fragment="content">
                     <!-- Content from specific pages will be inserted here -->
