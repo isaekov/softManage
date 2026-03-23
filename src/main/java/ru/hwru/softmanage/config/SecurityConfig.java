@@ -51,8 +51,9 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // отключаем для упрощения (если API нет)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login", "/plugins/**", "/dist/**").permitAll()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/projects/**").hasAnyRole("ADMIN", "PROJECT_MANAGER")
+                        .requestMatchers("/h2-console/**").permitAll()
+                        .requestMatchers("/admin/**").hasAnyAuthority("ADMIN")
+                        .requestMatchers("/projects/**").hasAnyAuthority("ADMIN", "PROJECT_MANAGER")
                         .requestMatchers("/tasks/**").authenticated()
                         .anyRequest().authenticated()
                 )

@@ -25,7 +25,7 @@ public class PageInterceptor implements HandlerInterceptor {
 
             // подставляем путь к шаблону: pages/имя_контроллера/имя_метода
             request.setAttribute("page", "pages/" + controllerName + "/" + methodName);
-
+            System.out.println("pages/" + controllerName + "/" + methodName);
             // для меню или активной вкладки
             request.setAttribute("currentController", controllerName);
             request.setAttribute("currentPage", methodName);

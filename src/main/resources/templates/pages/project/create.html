@@ -1,0 +1,22 @@
+<h1>Создать проект</h1>
+
+<form th:action="@{/projects/create}" method="post" th:object="${project}">
+
+    <div>
+        <label>Название:</label>
+        <input type="text" th:field="*{name}" />
+    </div>
+
+    <div>
+        <label>Описание:</label>
+        <input type="text" th:field="*{description}" />
+    </div>
+
+    <div>
+        <label>Статус:</label>
+        <input type="text" th:field="*{status}" />
+    </div>
+
+    <button type="submit">Сохранить</button>
+
+</form>
