@@ -1,0 +1,35 @@
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Список задач</h3>
+            <div class="card-tools">
+                <a th:href="@{/tasks/create}" class="btn btn-block btn-outline-primary btn-sm">Создать задачу</a>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Название</th>
+                    <th>Проект</th>
+                    <th style="width: 40px">Статус</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="t : ${tasks}">
+                    <td th:text="${t.id}"></td>
+                    <td th:text="${t.title}"></td>
+                    <td th:text="${t.project.name}"></td>
+                    <td th:text="${t.status}"></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
