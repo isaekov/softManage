@@ -35,6 +35,6 @@ public class ProjectController {
     @PostMapping("/create")
     public String create(@ModelAttribute Project project) {
         projectService.save(project);
-        return "redirect:/layout";
+        return "redirect:/projects";
     }
 }

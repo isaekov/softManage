@@ -1,13 +1,18 @@
+version: '3.8'
 services:
   postgres:
-    container_name: postgresdb
+    container_name: postgres
     image: postgres
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
-      PGDATA: /data/postgres
+      POSTGRES_USER: ${POSTGRES_USER:-user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-123}
+      POSTGRES_DB: ${POSTGRES_DB:-soft}
+      PGDATA: /var/lib/postgresql/data
     volumes:
-      - ./postgres:/data/postgres
+      # Локальное хранилище (не коммитим в Git!)
+      - ./postgres/data:/var/lib/postgresql/data
+      # Автоматическое восстановление при первом запуске
+      - ./postgres/init:/docker-entrypoint-initdb.d
     ports:
       - "${POSTGRES_PORT:-5432}:5432"
     networks:
