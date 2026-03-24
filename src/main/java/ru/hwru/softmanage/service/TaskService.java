@@ -26,4 +26,8 @@ public class TaskService {
     public void save(Task task) {
         taskRepository.save(task);
     }
+
+    public long count() {
+        return taskRepository.count();
+    }
 }

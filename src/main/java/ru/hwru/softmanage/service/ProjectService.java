@@ -26,4 +26,8 @@ public class ProjectService {
     public Project findById(Long id) {
         return projectRepository.findById(id).orElse(null);
     }
+
+    public long count() {
+        return projectRepository.count();
+    }
 }
