@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Project</title>
+</head>
+<body>
+
+<h1 th:text="${project.name}"></h1>
+
+<p th:text="${project.description}"></p>
+
+<hr>
+
+<h3>Прогресс проекта</h3>
+
+<div style="width: 300px; background: #ddd;">
+    <div th:style="'width:' + ${progress} + '%; background: green; height:20px;'"></div>
+</div>
+<span th:text="${progress} + '%'"></span>
+
+<hr>
+
+<h3>Общее количество часов</h3>
+<p th:text="${hours}"></p>
+
+<hr>
+
+<h3>Задачи проекта</h3>
+
+<table border="1">
+    <tr>
+        <th>Название</th>
+        <th>Статус</th>
+    </tr>
+
+    <tr th:each="t : ${tasks}">
+        <td th:text="${t.title}"></td>
+
+        <td>
+            <span th:if="${t.status == 'NEW'}" style="color: gray;">NEW</span>
+            <span th:if="${t.status == 'IN_PROGRESS'}" style="color: orange;">IN_PROGRESS</span>
+            <span th:if="${t.status == 'DONE'}" style="color: green;">DONE</span>
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>

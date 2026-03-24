@@ -8,11 +8,13 @@ import ru.hwru.softmanage.dto.UserDto;
 import ru.hwru.softmanage.dto.UserRequest;
 import ru.hwru.softmanage.entity.Position;
 import ru.hwru.softmanage.entity.Role;
+import ru.hwru.softmanage.entity.Task;
 import ru.hwru.softmanage.entity.User;
 import ru.hwru.softmanage.repository.PositionRepository;
 import ru.hwru.softmanage.repository.RoleRepository;
 import ru.hwru.softmanage.repository.UserRepository;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -72,5 +74,10 @@ public class UserService {
                 positionRepository.findByTitle(title).orElseGet(() -> positionRepository.save(new Position(title)))
         ).collect(Collectors.toSet());
     }
+
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
 }
 

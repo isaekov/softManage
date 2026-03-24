@@ -15,6 +15,8 @@
                     <th>Название</th>
                     <th>Проект</th>
                     <th style="width: 40px">Статус</th>
+                    <th>Исполнитель</th>
+                    <th>Действие</th>
                 </tr>
                 </thead>
 
@@ -23,7 +25,21 @@
                     <td th:text="${t.id}"></td>
                     <td th:text="${t.title}"></td>
                     <td th:text="${t.project.name}"></td>
-                    <td th:text="${t.status}"></td>
+                    <td th:text="${t.status.label}"></td>
+                    <td th:text="${t.assignee != null ? t.assignee.name : '-'}"></td>
+                    <td>
+                        <form th:action="@{/tasks/{id}/status(id=${t.id})}" method="post">
+
+                            <button th:if="${t.status.name() == 'NEW'}" type="submit" class="btn btn-block btn-outline-primary btn-xs">
+                                В работу
+                            </button>
+
+                            <button th:if="${t.status.name() == 'IN_PROGRESS'}" type="submit" class="btn btn-block btn-outline-success btn-xs">
+                                Завершить
+                            </button>
+
+                        </form>
+                    </td>
                 </tr>
 
                 </tbody>

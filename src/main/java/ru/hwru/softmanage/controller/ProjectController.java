@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.hwru.softmanage.entity.Project;
 import ru.hwru.softmanage.service.ProjectService;
+import ru.hwru.softmanage.service.TaskService;
 
 @Controller
 @RequestMapping("/projects")
@@ -12,8 +13,11 @@ public class ProjectController {
 
     private final ProjectService projectService;
 
-    public ProjectController(ProjectService projectService) {
+    private final TaskService taskService;
+
+    public ProjectController(ProjectService projectService, TaskService taskService) {
         this.projectService = projectService;
+        this.taskService = taskService;
     }
 
     // список проектов
@@ -36,5 +40,18 @@ public class ProjectController {
     public String create(@ModelAttribute Project project) {
         projectService.save(project);
         return "redirect:/projects";
+    }
+
+    @GetMapping("/{id}")
+    public String view(@PathVariable Long id, Model model) {
+
+        Project project = projectService.findById(id);
+
+        model.addAttribute("project", project);
+        model.addAttribute("tasks", taskService.findByProject(project));
+        model.addAttribute("progress", projectService.calculateProgress(project));
+        model.addAttribute("hours", projectService.getProjectHours(project));
+
+        return "layout";
     }
 }
