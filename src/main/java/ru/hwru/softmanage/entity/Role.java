@@ -19,11 +19,18 @@ public class Role {
     @ManyToMany(mappedBy = "roles")
     private Set<User> users = new HashSet<>();
 
+    private String label;
+
     public Role() {
     }
 
     public Role(String name) {
         this.name = name;
+    }
+
+    public Role(String name, String label) {
+        this.name = name;
+        this.label = label;
     }
 
     public Integer getId() {
@@ -48,5 +55,13 @@ public class Role {
 
     public void setUsers(Set<User> users) {
         this.users = users;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 }

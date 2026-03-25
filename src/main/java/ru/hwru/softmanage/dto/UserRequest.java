@@ -7,6 +7,9 @@ public class UserRequest {
     private String username;
     private String password;
     private String email;
+    private String name;
+
+    private String lastname;
     private Set<String> roles;
     private Set<String> positions;
 
@@ -48,5 +51,21 @@ public class UserRequest {
 
     public void setPositions(Set<String> positions) {
         this.positions = positions;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }

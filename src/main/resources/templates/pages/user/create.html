@@ -1,0 +1,56 @@
+<div class="col-md-6">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Создать пользователя</h3>
+        </div>
+
+        <form th:action="@{/users/create}" method="post" th:object="${user}">
+
+            <div class="card-body">
+
+                <div class="form-group">
+                    <label for="name">Имя</label>
+                    <input type="text" th:field="*{name}" class="form-control" id="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="lastname">Фамилия</label>
+                    <input type="text" th:field="*{lastname}" class="form-control" id="lastname">
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Логи</label>
+                    <input type="text" th:field="*{username}" class="form-control" id="username">
+                </div>
+                <div class="form-group">
+                    <label for="email">Почта</label>
+                    <input type="email" th:field="*{email}" class="form-control" id="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" th:field="*{password}" class="form-control" id="password">
+                </div>
+
+                <div class="form-group">
+                    <label >Роли</label>
+                    <div class="custom-control custom-checkbox" th:each="role, iter : ${roles}">
+
+                        <input class="custom-control-input"
+                               type="checkbox"
+                               th:id="${'customCheckbox' + iter.index}"  data-gtm-form-interact-field-id="0"
+                               name="roles"
+                               th:value="${role.name}"
+                               th:checked="${user.roles != null and user.roles.contains(role.name)}">
+                        <label th:for="${'customCheckbox' + iter.index}" class="custom-control-label" th:text="${role.label}"></label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </div>
+        </form>
+    </div>
+</div>

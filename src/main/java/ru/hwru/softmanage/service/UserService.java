@@ -1,7 +1,6 @@
 package ru.hwru.softmanage.service;
 
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.hwru.softmanage.dto.UserDto;
@@ -39,7 +38,8 @@ public class UserService {
         user.setUsername(request.getUsername());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setEmail(request.getEmail());
-
+        user.setName(request.getName());
+        user.setLastname(request.getLastname());
         user.setRoles(resolveRoles(request.getRoles()));
         user.setPositions(resolvePositions(request.getPositions()));
 
@@ -50,6 +50,9 @@ public class UserService {
     @Transactional
     public UserDto editUser(Long id, UserRequest request) {
         User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+
+        System.out.println("Ildar");
+        System.out.println(request.getEmail());
 
         if (request.getUsername() != null) user.setUsername(request.getUsername());
         if (request.getPassword() != null) user.setPassword(passwordEncoder.encode(request.getPassword()));
@@ -63,9 +66,11 @@ public class UserService {
 
     private Set<Role> resolveRoles(Set<String> roleNames) {
         if (roleNames == null) return Set.of();
-        return roleNames.stream().map(name ->
-                roleRepository.findByName(name).orElseGet(() -> roleRepository.save(new Role(name)))
-        ).collect(Collectors.toSet());
+
+        return roleNames.stream()
+                .map(name -> roleRepository.findByName(name)
+                        .orElseThrow(() -> new RuntimeException("Role not found: " + name)))
+                .collect(Collectors.toSet());
     }
 
     private Set<Position> resolvePositions(Set<String> titles) {
@@ -77,6 +82,11 @@ public class UserService {
 
     public List<User> findAll() {
         return userRepository.findAll();
+    }
+
+    public User findById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
 }

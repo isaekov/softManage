@@ -1,6 +1,7 @@
 package ru.hwru.softmanage.entity;
 
 import jakarta.persistence.*;
+import ru.hwru.softmanage.enums.ProjectStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -25,7 +26,9 @@ public class Project {
 
     private BigDecimal budget;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private ProjectStatus status;
 
 
     public Long getId() {
@@ -76,11 +79,11 @@ public class Project {
         this.budget = budget;
     }
 
-    public String getStatus() {
+    public ProjectStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(ProjectStatus status) {
         this.status = status;
     }
 }

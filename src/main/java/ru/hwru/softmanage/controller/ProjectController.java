@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.hwru.softmanage.entity.Project;
+import ru.hwru.softmanage.enums.ProjectStatus;
+import ru.hwru.softmanage.enums.TaskStatus;
 import ru.hwru.softmanage.service.ProjectService;
 import ru.hwru.softmanage.service.TaskService;
 
@@ -32,6 +34,8 @@ public class ProjectController {
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("project", new Project());
+        model.addAttribute("statuses", ProjectStatus.values());
+
         return "layout";
     }
 

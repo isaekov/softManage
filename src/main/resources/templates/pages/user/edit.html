@@ -1,0 +1,45 @@
+<div class="col-md-6">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Редактировать пользователя</h3>
+        </div>
+
+        <form th:action="@{/users/{id}/edit(id=${userId})}" method="post" th:object="${user}">
+
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="text" th:field="*{Username}" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Email</label>
+                    <input type="email" th:field="*{email}" class="form-control" id="exampleInputPassword1">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputStatus">Password</label>
+                    <input type="password" th:field="*{password}" class="form-control" id="exampleInputStatus">
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </div>
+
+
+            <div class="form-group">
+                <label for="exampleInputStatus">Роли</label>
+                <div th:each="role : ${roles}">
+                    <label>
+                        <input type="checkbox" class="btn btn-primary"
+                               name="roles"
+                               th:value="${role.name}"
+                               th:checked="${user.roles != null and user.roles.contains(role.name)}"/>
+
+                        <span th:text="${role.label}"></span>
+                    </label>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

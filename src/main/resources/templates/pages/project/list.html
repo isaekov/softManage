@@ -17,6 +17,7 @@
                 </tr>
                 </thead>
                 <tbody>
+
                 <tr th:each="p : ${projects}">
                     <td th:text="${p.id}"></td>
                     <td>
@@ -24,7 +25,7 @@
                            th:text="${p.name}">
                         </a>
                     </td>
-                    <td th:text="${p.status}"></td>
+                    <td th:text="${p.status.label}"></td>
 
                 </tr>
                 </tbody>

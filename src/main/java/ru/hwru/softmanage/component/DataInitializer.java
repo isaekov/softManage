@@ -30,11 +30,17 @@ public class DataInitializer implements CommandLineRunner {
 
         // Создаём роли, если их нет
         Role adminRole = roleRepository.findByName("ADMIN")
-                .orElseGet(() -> roleRepository.save(new Role("ADMIN")));
-        Role pmRole = roleRepository.findByName("PROJECT_MANAGER")
-                .orElseGet(() -> roleRepository.save(new Role("PROJECT_MANAGER")));
+                .orElseGet(() -> roleRepository.save(new Role("ADMIN", "Администратор")));
+        Role pmRole = roleRepository.findByName("MANAGER")
+                .orElseGet(() -> roleRepository.save(new Role("MANAGER", "Менеджер")));
         Role devRole = roleRepository.findByName("DEVELOPER")
-                .orElseGet(() -> roleRepository.save(new Role("DEVELOPER")));
+                .orElseGet(() -> roleRepository.save(new Role("DEVELOPER", "Разработчик")));
+
+        Role hrRole = roleRepository.findByName("HR")
+                .orElseGet(() -> roleRepository.save(new Role("HR", "HR")));
+
+        Role deRole = roleRepository.findByName("DESIGNER")
+                .orElseGet(() -> roleRepository.save(new Role("DESIGNER", "Дизайнер")));
 
 
         // Проверяем, есть ли уже главный пользователь
@@ -50,7 +56,7 @@ public class DataInitializer implements CommandLineRunner {
 
             userRepository.save(admin);
 
-            System.out.println("Главный администратор создан: admin / admin123");
+            System.out.println("Главный администратор создан: admin/admin");
         }
     }
 }
