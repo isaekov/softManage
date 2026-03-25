@@ -20,25 +20,25 @@
                     <label for="exampleInputStatus">Password</label>
                     <input type="password" th:field="*{password}" class="form-control" id="exampleInputStatus">
                 </div>
+
+                <div class="form-group">
+                    <label >Роли</label>
+                    <div class="custom-control custom-checkbox" th:each="role, iter : ${roles}">
+
+                        <input class="custom-control-input"
+                               type="checkbox"
+                               th:id="${'customCheckbox' + iter.index}"  data-gtm-form-interact-field-id="0"
+                               name="roles"
+                               th:value="${role.name}"
+                               th:checked="${user.roles != null and user.roles.contains(role.name)}">
+                        <label th:for="${'customCheckbox' + iter.index}" class="custom-control-label" th:text="${role.label}"></label>
+                    </div>
+                </div>
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Сохранить</button>
             </div>
 
-
-            <div class="form-group">
-                <label for="exampleInputStatus">Роли</label>
-                <div th:each="role : ${roles}">
-                    <label>
-                        <input type="checkbox" class="btn btn-primary"
-                               name="roles"
-                               th:value="${role.name}"
-                               th:checked="${user.roles != null and user.roles.contains(role.name)}"/>
-
-                        <span th:text="${role.label}"></span>
-                    </label>
-                </div>
-            </div>
 
         </form>
     </div>

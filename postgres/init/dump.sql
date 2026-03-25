@@ -2,7 +2,7 @@
 -- PostgreSQL database cluster dump
 --
 
-\restrict zoXyKJ7QzdIkK0zMhSEbIfDxwSAgwz3ADmLfYY2jF5MnirbWL7hMqzyz3S4Kgz7
+\restrict ZCwaG1MMdhRy3ecGqe1il3PqJQiPUzBaxxo58cGab0pxAdUJo95g5sGgPuUfTAE
 
 SET default_transaction_read_only = off;
 
@@ -43,7 +43,7 @@ ALTER ROLE "user" WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION B
 
 
 
-\unrestrict zoXyKJ7QzdIkK0zMhSEbIfDxwSAgwz3ADmLfYY2jF5MnirbWL7hMqzyz3S4Kgz7
+\unrestrict ZCwaG1MMdhRy3ecGqe1il3PqJQiPUzBaxxo58cGab0pxAdUJo95g5sGgPuUfTAE
 
 --
 -- Databases
@@ -57,7 +57,7 @@ ALTER ROLE "user" WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION B
 -- PostgreSQL database dump
 --
 
-\restrict oEjjcuLId5bGZVvN4QYOTQ2tctASjreYabNxRDhhWGn2PAddbhpCAbyW30CpMqI
+\restrict PQRnr8XUd54xfM7fDF3EF00P7M4MSLiNUfRQ0bfMlPpIF56byccHme4NLhohgZR
 
 -- Dumped from database version 18.3 (Debian 18.3-1.pgdg13+1)
 -- Dumped by pg_dump version 18.3 (Debian 18.3-1.pgdg13+1)
@@ -85,9 +85,9 @@ CREATE DATABASE template1 WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PRO
 
 ALTER DATABASE template1 OWNER TO "user";
 
-\unrestrict oEjjcuLId5bGZVvN4QYOTQ2tctASjreYabNxRDhhWGn2PAddbhpCAbyW30CpMqI
+\unrestrict PQRnr8XUd54xfM7fDF3EF00P7M4MSLiNUfRQ0bfMlPpIF56byccHme4NLhohgZR
 \connect template1
-\restrict oEjjcuLId5bGZVvN4QYOTQ2tctASjreYabNxRDhhWGn2PAddbhpCAbyW30CpMqI
+\restrict PQRnr8XUd54xfM7fDF3EF00P7M4MSLiNUfRQ0bfMlPpIF56byccHme4NLhohgZR
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -115,9 +115,9 @@ COMMENT ON DATABASE template1 IS 'default template for new databases';
 ALTER DATABASE template1 IS_TEMPLATE = true;
 
 
-\unrestrict oEjjcuLId5bGZVvN4QYOTQ2tctASjreYabNxRDhhWGn2PAddbhpCAbyW30CpMqI
+\unrestrict PQRnr8XUd54xfM7fDF3EF00P7M4MSLiNUfRQ0bfMlPpIF56byccHme4NLhohgZR
 \connect template1
-\restrict oEjjcuLId5bGZVvN4QYOTQ2tctASjreYabNxRDhhWGn2PAddbhpCAbyW30CpMqI
+\restrict PQRnr8XUd54xfM7fDF3EF00P7M4MSLiNUfRQ0bfMlPpIF56byccHme4NLhohgZR
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -143,7 +143,7 @@ GRANT CONNECT ON DATABASE template1 TO PUBLIC;
 -- PostgreSQL database dump complete
 --
 
-\unrestrict oEjjcuLId5bGZVvN4QYOTQ2tctASjreYabNxRDhhWGn2PAddbhpCAbyW30CpMqI
+\unrestrict PQRnr8XUd54xfM7fDF3EF00P7M4MSLiNUfRQ0bfMlPpIF56byccHme4NLhohgZR
 
 --
 -- Database "postgres" dump
@@ -153,7 +153,7 @@ GRANT CONNECT ON DATABASE template1 TO PUBLIC;
 -- PostgreSQL database dump
 --
 
-\restrict ow7uqB2mMMDl1AjGgTGefhI7ivCQtXfFvlxWhlwafwbfJgfjjkb7vH4FTIga7qT
+\restrict Cg18eJyoexiwfX7jhiOHdZ0gczovU6nhQFX5PqDDp84LTuxzNVafACEYporWZ4N
 
 -- Dumped from database version 18.3 (Debian 18.3-1.pgdg13+1)
 -- Dumped by pg_dump version 18.3 (Debian 18.3-1.pgdg13+1)
@@ -180,9 +180,9 @@ CREATE DATABASE postgres WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROV
 
 ALTER DATABASE postgres OWNER TO "user";
 
-\unrestrict ow7uqB2mMMDl1AjGgTGefhI7ivCQtXfFvlxWhlwafwbfJgfjjkb7vH4FTIga7qT
+\unrestrict Cg18eJyoexiwfX7jhiOHdZ0gczovU6nhQFX5PqDDp84LTuxzNVafACEYporWZ4N
 \connect postgres
-\restrict ow7uqB2mMMDl1AjGgTGefhI7ivCQtXfFvlxWhlwafwbfJgfjjkb7vH4FTIga7qT
+\restrict Cg18eJyoexiwfX7jhiOHdZ0gczovU6nhQFX5PqDDp84LTuxzNVafACEYporWZ4N
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -207,7 +207,7 @@ COMMENT ON DATABASE postgres IS 'default administrative connection database';
 -- PostgreSQL database dump complete
 --
 
-\unrestrict ow7uqB2mMMDl1AjGgTGefhI7ivCQtXfFvlxWhlwafwbfJgfjjkb7vH4FTIga7qT
+\unrestrict Cg18eJyoexiwfX7jhiOHdZ0gczovU6nhQFX5PqDDp84LTuxzNVafACEYporWZ4N
 
 --
 -- Database "soft" dump
@@ -217,7 +217,7 @@ COMMENT ON DATABASE postgres IS 'default administrative connection database';
 -- PostgreSQL database dump
 --
 
-\restrict 0YiTf89OCIDmQl9ffGhI8bqecVfg52cusEjJbUqUthe4dZeEdhBdUSK3BalKBOM
+\restrict 1YxnVFAqCJ5BSAd2jOXyWQP17UUyb50gsCJh8DN6zy2fiMErZTrcYciljjbKnXN
 
 -- Dumped from database version 18.3 (Debian 18.3-1.pgdg13+1)
 -- Dumped by pg_dump version 18.3 (Debian 18.3-1.pgdg13+1)
@@ -243,9 +243,9 @@ CREATE DATABASE soft WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER
 
 ALTER DATABASE soft OWNER TO "user";
 
-\unrestrict 0YiTf89OCIDmQl9ffGhI8bqecVfg52cusEjJbUqUthe4dZeEdhBdUSK3BalKBOM
+\unrestrict 1YxnVFAqCJ5BSAd2jOXyWQP17UUyb50gsCJh8DN6zy2fiMErZTrcYciljjbKnXN
 \connect soft
-\restrict 0YiTf89OCIDmQl9ffGhI8bqecVfg52cusEjJbUqUthe4dZeEdhBdUSK3BalKBOM
+\restrict 1YxnVFAqCJ5BSAd2jOXyWQP17UUyb50gsCJh8DN6zy2fiMErZTrcYciljjbKnXN
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -301,7 +301,7 @@ CREATE TABLE public.projects (
     name character varying(255) NOT NULL,
     start_date date,
     status character varying(255) NOT NULL,
-    CONSTRAINT projects_status_check CHECK (((status)::text = ANY ((ARRAY['DRAFT'::character varying, 'PLANNING'::character varying, 'ACTIVE'::character varying, 'ON_HOLD'::character varying, 'COMPLETED'::character varying, 'CANCELLED'::character varying])::text[])))
+    CONSTRAINT projects_status_check CHECK (((status)::text = ANY (ARRAY[('DRAFT'::character varying)::text, ('PLANNING'::character varying)::text, ('ACTIVE'::character varying)::text, ('ON_HOLD'::character varying)::text, ('COMPLETED'::character varying)::text, ('CANCELLED'::character varying)::text])))
 );
 
 
@@ -349,6 +349,35 @@ CREATE SEQUENCE public.roles_seq
 ALTER SEQUENCE public.roles_seq OWNER TO "user";
 
 --
+-- Name: task_comment; Type: TABLE; Schema: public; Owner: user
+--
+
+CREATE TABLE public.task_comment (
+    id bigint NOT NULL,
+    created_at timestamp(6) without time zone,
+    text character varying(255),
+    task_id bigint,
+    user_id bigint
+);
+
+
+ALTER TABLE public.task_comment OWNER TO "user";
+
+--
+-- Name: task_comment_id_seq; Type: SEQUENCE; Schema: public; Owner: user
+--
+
+ALTER TABLE public.task_comment ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.task_comment_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
 -- Name: tasks; Type: TABLE; Schema: public; Owner: user
 --
 
@@ -361,7 +390,7 @@ CREATE TABLE public.tasks (
     title character varying(255) NOT NULL,
     assignee_id bigint,
     project_id bigint NOT NULL,
-    CONSTRAINT tasks_status_check CHECK (((status)::text = ANY ((ARRAY['NEW'::character varying, 'IN_PROGRESS'::character varying, 'DONE'::character varying, 'STALLED'::character varying])::text[])))
+    CONSTRAINT tasks_status_check CHECK (((status)::text = ANY (ARRAY[('NEW'::character varying)::text, ('IN_PROGRESS'::character varying)::text, ('DONE'::character varying)::text, ('STALLED'::character varying)::text])))
 );
 
 
@@ -444,7 +473,8 @@ CREATE TABLE public.users (
     lastname character varying(255),
     name character varying(255),
     password character varying(255),
-    username character varying(255)
+    username character varying(255),
+    assignee_id bigint
 );
 
 
@@ -505,6 +535,20 @@ COPY public.roles (id, label, name) FROM stdin;
 
 
 --
+-- Data for Name: task_comment; Type: TABLE DATA; Schema: public; Owner: user
+--
+
+COPY public.task_comment (id, created_at, text, task_id, user_id) FROM stdin;
+1	2026-03-25 20:40:15.460117	Добавить не много	1	1
+2	2026-03-25 20:40:24.404684	можно еще\r\n	1	1
+3	2026-03-25 21:15:43.405889	Привет	1	1
+4	2026-03-25 21:17:23.355682	Привет	8	1
+5	2026-03-25 21:17:33.780243	фывафыва	8	1
+6	2026-03-25 21:17:37.751133	фывафыва	8	1
+\.
+
+
+--
 -- Data for Name: tasks; Type: TABLE DATA; Schema: public; Owner: user
 --
 
@@ -524,6 +568,10 @@ COPY public.tasks (id, deadline, description, priority, status, title, assignee_
 13	2026-03-12	Spring Boot vs Node.js	MEDIUM	DONE	Выбрать стек технологий	\N	4
 14	2026-02-28	Выгрузка за 2025 год	HIGH	IN_PROGRESS	Собрать исходные данные из CRM	\N	5
 15	\N	Связи, меры, визуализация	MEDIUM	STALLED	Построить модель в Power BI	\N	5
+16	\N	Баг при нажатии кнопки сохранить	\N	NEW	Исправить баг	2	1
+17	\N	Figma, утвердить с заказчиком	\N	DONE	Создать макет главной страницы	\N	1
+18	\N	Figma, утвердить с заказчиком	\N	STALLED	Создать макет главной страницы	10	1
+19	\N	1C + Java-сервис	\N	IN_PROGRESS	Написать обработчик выгрузки	6	3
 \.
 
 
@@ -594,6 +642,7 @@ COPY public.user_positions (user_id, position_id) FROM stdin;
 
 COPY public.user_roles (user_id, role_id) FROM stdin;
 1	1
+1	5
 \.
 
 
@@ -601,18 +650,18 @@ COPY public.user_roles (user_id, role_id) FROM stdin;
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: user
 --
 
-COPY public.users (id, active, email, lastname, name, password, username) FROM stdin;
-1	t	admin@hwru.ru	Исаеков	Ильдар	$2a$10$/QyHCtBiQp7R29/q2hoad.EdOL1AxOsurEupEfJ6tvRL0Ol25QYK.	admin
-2	t	user1@example.com	Первый	Пользователь	$2a$10$XcF6Z7qWvKJ8fQ9sR2tU.Oe3mN4pL5rS6uV7wY8zA9bB0cC1dD2eE	user1
-3	t	user2@example.com	Второй	Пользователь	$2a$10$YdG7a8rXwKJ9gR0tS3uU.Pf4nO5qM6sT7vW8xZ9yA0bB1cC2dD3eE	user2
-4	t	user3@example.com	Третий	Пользователь	$2a$10$ZeH8b9sYxLK0hS1uT4vV.Qg5oP6rN7tU8wX9yA0zB1cC2dD3eE4fF	user3
-5	t	user4@example.com	Четвёртый	Пользователь	$2a$10$AfI9c0tZyML1iT2vU5wW.Rh6pQ7sO8uV9xY0zA1bB2cC3dD4eE5fF	user4
-6	t	user5@example.com	Пятый	Пользователь	$2a$10$BgJ0d1uAzNM2jU3wV6xX.Si7qR8tP9vW0yZ1aA2bB3cC4dD5eE6fF	user5
-7	t	user6@example.com	Шестой	Пользователь	$2a$10$ChK1e2vBzON3kV4xW7yY.Tj8rS9uQ0wX1zA2bB3cC4dD5eE6fF7gG	user6
-8	t	user7@example.com	Седьмой	Пользователь	$2a$10$DiL2f3wCzPO4lW5yX8zZ.Uk9sT0vR1xY2aA3bB4cC5dD6eE7fF8gG	user7
-9	t	user8@example.com	Восьмой	Пользователь	$2a$10$EjM3g4xDzQP5mX6zY9aA.Vl0tU1wS2yZ3bB4cC5dD6eE7fF8gG9hH	user8
-10	t	user9@example.com	Девятый	Пользователь	$2a$10$FkN4h5yEzRQ6nY7aZ0bB.Wm1uV2xT3zA4cC5dD6eE7fF8gG9hH0iI	user9
-11	t	user10@example.com	Десятый	Пользователь	$2a$10$GlO5i6zFzSR7oZ8bA1cC.Xn2vW3yU4aB5dD6eE7fF8gG9hH0iI1jJ	user10
+COPY public.users (id, active, email, lastname, name, password, username, assignee_id) FROM stdin;
+1	t	admin@hwru.ru	Исаеков	Ильдар	$2a$10$lRe5OvvqppbI/4i5/F2/d.U1QXxxX12bFgchlkJM87QjJ9Bc.Yp0y	admin	\N
+2	t	user1@example.com	Первый	Первый	$2a$10$XcF6Z7qWvKJ8fQ9sR2tU.Oe3mN4pL5rS6uV7wY8zA9bB0cC1dD2eE	user1	\N
+10	t	user9@example.com	Девятый	Девятый	$2a$10$FkN4h5yEzRQ6nY7aZ0bB.Wm1uV2xT3zA4cC5dD6eE7fF8gG9hH0iI	user9	\N
+8	t	user7@example.com	Седьмой	Седьмой	$2a$10$DiL2f3wCzPO4lW5yX8zZ.Uk9sT0vR1xY2aA3bB4cC5dD6eE7fF8gG	user7	\N
+4	t	user3@example.com	Третий	Третий	$2a$10$ZeH8b9sYxLK0hS1uT4vV.Qg5oP6rN7tU8wX9yA0zB1cC2dD3eE4fF	user3	\N
+3	t	user2@example.com	Второй	Второй	$2a$10$YdG7a8rXwKJ9gR0tS3uU.Pf4nO5qM6sT7vW8xZ9yA0bB1cC2dD3eE	user2	\N
+9	t	user8@example.com	Восьмой	Восьмой	$2a$10$EjM3g4xDzQP5mX6zY9aA.Vl0tU1wS2yZ3bB4cC5dD6eE7fF8gG9hH	user8	\N
+7	t	user6@example.com	Шестой	Шестой	$2a$10$ChK1e2vBzON3kV4xW7yY.Tj8rS9uQ0wX1zA2bB3cC4dD5eE6fF7gG	user6	\N
+11	t	user10@example.com	Десятый	Десятый	$2a$10$GlO5i6zFzSR7oZ8bA1cC.Xn2vW3yU4aB5dD6eE7fF8gG9hH0iI1jJ	user10	\N
+5	t	user4@example.com	Четвёртый	Четвёртый	$2a$10$AfI9c0tZyML1iT2vU5wW.Rh6pQ7sO8uV9xY0zA1bB2cC3dD4eE5fF	user4	\N
+6	t	user5@example.com	Пятый	Пятый	$2a$10$BgJ0d1uAzNM2jU3wV6xX.Si7qR8tP9vW0yZ1aA2bB3cC4dD5eE6fF	user5	\N
 \.
 
 
@@ -638,10 +687,17 @@ SELECT pg_catalog.setval('public.roles_seq', 51, true);
 
 
 --
+-- Name: task_comment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user
+--
+
+SELECT pg_catalog.setval('public.task_comment_id_seq', 6, true);
+
+
+--
 -- Name: tasks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: user
 --
 
-SELECT pg_catalog.setval('public.tasks_id_seq', 15, true);
+SELECT pg_catalog.setval('public.tasks_id_seq', 19, true);
 
 
 --
@@ -680,6 +736,14 @@ ALTER TABLE ONLY public.projects
 
 ALTER TABLE ONLY public.roles
     ADD CONSTRAINT roles_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: task_comment task_comment_pkey; Type: CONSTRAINT; Schema: public; Owner: user
+--
+
+ALTER TABLE ONLY public.task_comment
+    ADD CONSTRAINT task_comment_pkey PRIMARY KEY (id);
 
 
 --
@@ -747,6 +811,22 @@ ALTER TABLE ONLY public.user_positions
 
 
 --
+-- Name: users fk5u5lw05ea2jdvgkstqdjecge9; Type: FK CONSTRAINT; Schema: public; Owner: user
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT fk5u5lw05ea2jdvgkstqdjecge9 FOREIGN KEY (assignee_id) REFERENCES public.users(id);
+
+
+--
+-- Name: task_comment fk7kiv45on4bf6my8w8mhefy9jy; Type: FK CONSTRAINT; Schema: public; Owner: user
+--
+
+ALTER TABLE ONLY public.task_comment
+    ADD CONSTRAINT fk7kiv45on4bf6my8w8mhefy9jy FOREIGN KEY (task_id) REFERENCES public.tasks(id);
+
+
+--
 -- Name: tasks fkekr1dgiqktpyoip3qmp6lxsit; Type: FK CONSTRAINT; Schema: public; Owner: user
 --
 
@@ -779,6 +859,14 @@ ALTER TABLE ONLY public.user_roles
 
 
 --
+-- Name: task_comment fko2c4nu60419sd7mn9qexf4cqa; Type: FK CONSTRAINT; Schema: public; Owner: user
+--
+
+ALTER TABLE ONLY public.task_comment
+    ADD CONSTRAINT fko2c4nu60419sd7mn9qexf4cqa FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
 -- Name: user_positions fkqieyn6an8qsrf02uvgsieege6; Type: FK CONSTRAINT; Schema: public; Owner: user
 --
 
@@ -798,7 +886,7 @@ ALTER TABLE ONLY public.tasks
 -- PostgreSQL database dump complete
 --
 
-\unrestrict 0YiTf89OCIDmQl9ffGhI8bqecVfg52cusEjJbUqUthe4dZeEdhBdUSK3BalKBOM
+\unrestrict 1YxnVFAqCJ5BSAd2jOXyWQP17UUyb50gsCJh8DN6zy2fiMErZTrcYciljjbKnXN
 
 --
 -- PostgreSQL database cluster dump complete

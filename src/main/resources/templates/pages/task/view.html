@@ -1,0 +1,62 @@
+
+<div class="col-md-8">
+    <!-- Box Comment -->
+    <div class="card card-widget">
+        <div class="card-header">
+            <h3 class="card-title">Задание</h3>
+        </div>
+        <div class="card-body">
+            <div class="card">
+                <div class="card-body">
+                    <h1 th:text="${task.title}"></h1>
+                    <dl>
+                        <dt>Описание</dt>
+                        <dd th:text="${task.description}"></dd>
+                        <dt>Статус</dt>
+                        <dd th:text="${task.status.label}"></dd>
+                        <dt>Исполнитель</dt>
+                        <dd th:text="${task.assignee != null ? task.assignee.namme : 'Не назначен'}"></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer bg-white">
+            <h3>Комментарии</h3>
+        </div>
+
+        <div class="card-footer card-comments bg-white">
+            <div class="card-comment" th:each="c : ${comments}">
+                <img class="direct-chat-img" src="../dist/img/user1-128x128.jpg" alt="Message User Image">
+                <div class="comment-text">
+                    <span class="username">
+                      <span th:text="${c.user.name}"></span>
+                      <span class="text-muted float-right" th:text="${#temporals.format(c.createdAt, 'dd.MM.yyyy HH:mm')}"></span>
+                    </span><!-- /.username -->
+                   <span th:text="${c.text}"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- /.card-footer -->
+        <div class="card-footer">
+            <form th:action="@{/tasks/{id}/comments(id=${task.id})}" method="post">
+
+            <!-- .img-push is used to add margin to elements next to floating images -->
+
+                <div class="input-group">
+                    <input type="text" name="text" placeholder="" class="form-control">
+                    <span class="input-group-append">
+                      <button type="submit" class="btn btn-success">Отправить</button>
+                    </span>
+                </div>
+
+            </form>
+        </div>
+        <!-- /.card-footer -->
+    </div>
+    <!-- /.card -->
+    <a class="btn btn-default" href="/tasks">Назад</a>
+</div>
+

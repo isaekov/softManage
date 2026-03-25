@@ -26,20 +26,26 @@
                     <td th:text="${t.title}"></td>
                     <td th:text="${t.project.name}"></td>
                     <td th:text="${t.status.label}"></td>
-                    <td th:text="${t.assignee != null ? t.assignee.name : '-'}"></td>
-                    <td>
-                        <form th:action="@{/tasks/{id}/status(id=${t.id})}" method="post">
+                    <td th:text="${t.assigned != null ? t.assigned.name : '-'}"></td>
 
-                            <button th:if="${t.status.name() == 'NEW'}" type="submit" class="btn btn-block btn-outline-primary btn-xs">
-                                В работу
-                            </button>
-
-                            <button th:if="${t.status.name() == 'IN_PROGRESS'}" type="submit" class="btn btn-block btn-outline-success btn-xs">
-                                Завершить
-                            </button>
-
-                        </form>
+                    <td class="project-actions text-right">
+                        <a class="btn btn-primary btn-sm" th:href="@{/tasks/{id}(id=${t.id})}">
+                            <i class="fas fa-folder">
+                            </i>
+                            View
+                        </a>
+                        <a class="btn btn-info btn-sm" th:href="@{/tasks/{id}/edit(id=${t.id})}">
+                            <i class="fas fa-pencil-alt">
+                            </i>
+                            Edit
+                        </a>
+<!--                        <a class="btn btn-danger btn-sm" th:href="@{/tasks/{id}/edit(id=${task.id})}">-->
+<!--                            <i class="fas fa-trash">-->
+<!--                            </i>-->
+<!--                            Delete-->
+<!--                        </a>-->
                     </td>
+
                 </tr>
 
                 </tbody>

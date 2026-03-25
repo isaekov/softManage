@@ -1,0 +1,83 @@
+<div class="row">
+    <div class="card  card-primary col-3 mr-2">
+        <div class="card-header">
+            <h3 class="card-title">
+                Новые
+            </h3>
+        </div>
+        <div class="card-body">
+            <div class="card card-primary card-outline" th:each="t : ${newTasks}">
+                <div class="card-header">
+                    <h5 class="card-title" th:text="${t.title}"></h5>
+                    <div class="card-tools">
+                        <a href="#" class="btn btn-tool btn-link" th:text="'#' +  ${t.id}"></a>
+                        <a href="#" class="btn btn-tool">
+                            <i class="fas fa-pen"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p th:text="${t.description}"></p>
+                </div>
+
+                <div class="card-footer bg-white">
+                    <form th:action="@{/tasks/{id}/status(id=${t.id})}" method="post">
+                        <button class="btn btn-block btn-outline-dark btn-xs" type="submit">В работу</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card card-row card-info col-3 mr-2">
+        <div class="card-header">
+            <h3 class="card-title">
+                В работе
+            </h3>
+        </div>
+        <div class="card-body">
+            <div class="card card-primary card-outline" th:each="t : ${inProgressTasks}">
+                <div class="card-header">
+                    <h5 class="card-title" th:text="${t.title}"></h5>
+                    <div class="card-tools">
+                        <a href="#" class="btn btn-tool btn-link" th:text="'#' +  ${t.id}"></a>
+                        <a href="#" class="btn btn-tool">
+                            <i class="fas fa-pen"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p th:text="${t.description}"></p>
+                </div>
+
+                <div class="card-footer bg-white">
+                    <form th:action="@{/tasks/{id}/status(id=${t.id})}" method="post">
+                        <button class="btn btn-block btn-outline-dark btn-xs" type="submit">Завершить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card card-row card-success col-3">
+        <div class="card-header">
+            <h3 class="card-title">
+                Готово
+            </h3>
+        </div>
+        <div class="card-body">
+            <div class="card card-primary card-outline" th:each="t : ${doneTasks}">
+                <div class="card-header">
+                    <h5 class="card-title" th:text="${t.title}"></h5>
+                    <div class="card-tools">
+                        <a href="#" class="btn btn-tool btn-link" th:text="'#' +  ${t.id}"></a>
+                        <a href="#" class="btn btn-tool">
+                            <i class="fas fa-pen"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p th:text="${t.description}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

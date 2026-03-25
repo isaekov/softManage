@@ -1,47 +1,24 @@
-package ru.hwru.softmanage.entity;
+package ru.hwru.softmanage.dto;
 
-import jakarta.persistence.*;
+import ru.hwru.softmanage.entity.Project;
+import ru.hwru.softmanage.entity.User;
 import ru.hwru.softmanage.enums.TaskStatus;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "tasks")
-public class Task {
+public class TaskRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
     private String title;
-
     private String description;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private TaskStatus status;
-
-    private String priority;
+    private TaskStatus status;     // позже можно заменить на enum
+    private String priority;   // тоже можно потом в enum
 
     private LocalDate deadline;
 
-    @ManyToOne
-    @JoinColumn(name = "project_id", nullable = false)
     private Project project;
-
-    @ManyToOne
-    @JoinColumn(name = "assignee_id")
     private User assigned;
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;

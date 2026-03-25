@@ -79,10 +79,28 @@
                     </li>
 
                     <li class="nav-item">
+                        <a th:href="@{/tasks/kanban}" sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Канбан
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a th:href="@{/tasks}" sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Задачи
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{/tasks/my}" sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Мои задачи
                             </p>
                         </a>
                     </li>

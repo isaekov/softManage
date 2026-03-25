@@ -13,6 +13,39 @@ public class User {
     @GeneratedValue
     private Long id;
 
+    private String username;
+
+    private String password;
+
+    private String email;
+
+    private boolean active;
+
+    private String name;
+
+    private String lastname;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(name="user_id"),
+            inverseJoinColumns = @JoinColumn(name="role_id")
+    )
+    private Set<Role> roles = new HashSet<>();
+
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinTable(
+            name = "user_positions",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "position_id")
+    )
+    private Set<Position> positions = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "assignee_id")
+    private User assignee;
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -44,37 +77,6 @@ public class User {
     public void setPositions(Set<Position> positions) {
         this.positions = positions;
     }
-
-
-    private String username;
-
-    private String password;
-
-    private String email;
-
-    private boolean active;
-
-    private String name;
-
-    private String lastname;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name="user_id"),
-            inverseJoinColumns = @JoinColumn(name="role_id")
-    )
-    private Set<Role> roles = new HashSet<>();
-
-
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
-    @JoinTable(
-            name = "user_positions",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "position_id")
-    )
-    private Set<Position> positions = new HashSet<>();
-
 
     public Long getId() {
         return id;
@@ -129,5 +131,13 @@ public class User {
     public void removeRole(Role role) {
         roles.remove(role);
         role.getUsers().remove(this);
+    }
+
+    public User getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(User assignee) {
+        this.assignee = assignee;
     }
 }

@@ -38,8 +38,8 @@
             </div>
 
             <div class="form-group">
-                <label for="assignee">Проект</label>
-                <select th:field="*{assignee}" class="custom-select rounded-0" id="assignee">
+                <label for="assignee">Исполнитель</label>
+                <select th:field="*{assigned}" class="custom-select rounded-0" id="assignee">
                     <option th:each="u : ${users}"
                             th:value="${u.id}"
                             th:text="${u.name}">
