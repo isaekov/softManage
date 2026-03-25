@@ -22,21 +22,23 @@
 <canvas id="chart" width="400" height="200"></canvas>
 
 <script th:inline="javascript">
-    let data = [[${tasksByUser}]];
-
-    let labels = Object.keys(data);
-    let values = Object.values(data);
-
-    new Chart(document.getElementById('chart'), {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'Количество задач',
-                data: values
-            }]
-        }
-    });
+    // let data = [[${tasksByUser}]];
+    //
+    // let labels = Object.keys(data);
+    // let values = Object.values(data);
+    //
+    // console.log("ildar", labels)
+    //
+    // new Chart(document.getElementById('chart'), {
+    //     type: 'bar',
+    //     data: {
+    //         labels: labels,
+    //         datasets: [{
+    //             label: 'Количество задач',
+    //             data: values
+    //         }]
+    //     }
+    // });
 </script>
 
 <br/>
@@ -75,25 +77,26 @@
     </div>
     <!-- /.card-body -->
 </div>
+<th:block th:fragment="scripts">
+<script >
 
-<script th:fragment="scripts">
+    let data = [[${tasksByUser}]];
 
+    let labels = Object.keys(data);
+    let values = Object.values(data);
 
     $(document).ready(function () {
+
+
+
+        console.log("ildar1", labels)
         //-------------
         //- DONUT CHART -
         //-------------
         // Get context with jQuery - using jQuery's .get() method.
         var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
         var donutData = {
-            labels: [
-                'Chrome',
-                'IE',
-                'FireFox',
-                'Safari',
-                'Opera',
-                'Navigator',
-            ],
+            labels: labels,
             datasets: [
                 {
                     data: [700, 500, 400, 600, 300, 100],
@@ -114,4 +117,4 @@
         })
     })
 </script>
-
+</th:block>

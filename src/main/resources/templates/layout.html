@@ -175,7 +175,7 @@
 <script src="/dist/js/adminlte.min.js"></script>
 
 
-<th:block th:insert="~{${page} :: scripts}"></th:block>
+<th:block th:replace="~{${page} :: scripts} ?: ~{}"></th:block>
 
 </body>
 </html>
