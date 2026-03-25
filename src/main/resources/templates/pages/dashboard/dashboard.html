@@ -1,70 +1,117 @@
-<div class="card card-white">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h1>Dashboard</h1>
+
+<h3>Общая статистика</h3>
+
+<ul>
+    <li>Всего задач: <span th:text="${total}"></span></li>
+    <li>Новые: <span th:text="${newTasks}"></span></li>
+    <li>В работе: <span th:text="${inProgress}"></span></li>
+    <li>Готово: <span th:text="${done}"></span></li>
+</ul>
+
+<h3>Задачи по пользователям</h3>
+
+<canvas id="chart" width="400" height="200"></canvas>
+
+<script th:inline="javascript">
+    let data = [[${tasksByUser}]];
+
+    let labels = Object.keys(data);
+    let values = Object.values(data);
+
+    new Chart(document.getElementById('chart'), {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Количество задач',
+                data: values
+            }]
+        }
+    });
+</script>
+
+<br/>
+
+<a href="/tasks">Назад</a>
+
+</body>
+</html>
+
+
+<div class="card card-danger">
     <div class="card-header">
-        <h3 class="card-title">Панель управления</h3>
+        <h3 class="card-title">Donut Chart</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
     </div>
     <div class="card-body">
-
-<div class="row">
-    <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-info">
-            <div class="inner">
-                <h3 th:text="${projectsCount}"></h3>
-
-                <p>Проекты</p>
+        <div class="chartjs-size-monitor">
+            <div class="chartjs-size-monitor-expand">
+                <div class=""></div>
             </div>
-            <div class="icon">
-                <i class="ion ion-bag"></i>
+            <div class="chartjs-size-monitor-shrink">
+                <div class=""></div>
             </div>
-            <a href="#" class="small-box-footer">Перейти <i class="fas fa-arrow-circle-right"></i></a>
         </div>
+        <canvas id="donutChart"
+                style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 690px;"
+                width="690" height="250" class="chartjs-render-monitor"></canvas>
     </div>
-
-    <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-success">
-            <div class="inner">
-                <h3 th:text="${tasksCount}"></h3>
-
-                <p>Задачи</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">Перейти <i class="fas fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-warning">
-            <div class="inner">
-                <h3 th:text="${timeEntriesCount}"></h3>
-
-                <p>Записи времени</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">Перейти <i class="fas fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-danger">
-            <div class="inner">
-                <h3 th:text="${totalHours}"></h3>
-
-                <p>Всего часов</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">Перейти <i class="fas fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-    <!-- ./col -->
+    <!-- /.card-body -->
 </div>
-    </div>
-</div>
+
+<script th:fragment="scripts">
+
+
+    $(document).ready(function () {
+        //-------------
+        //- DONUT CHART -
+        //-------------
+        // Get context with jQuery - using jQuery's .get() method.
+        var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+        var donutData = {
+            labels: [
+                'Chrome',
+                'IE',
+                'FireFox',
+                'Safari',
+                'Opera',
+                'Navigator',
+            ],
+            datasets: [
+                {
+                    data: [700, 500, 400, 600, 300, 100],
+                    backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+                }
+            ]
+        }
+        var donutOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+        }
+        //Create pie or douhnut chart
+        // You can switch between pie and douhnut using the method below.
+        new Chart(donutChartCanvas, {
+            type: 'doughnut',
+            data: donutData,
+            options: donutOptions
+        })
+    })
+</script>
+
