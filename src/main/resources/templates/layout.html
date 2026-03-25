@@ -69,27 +69,40 @@
                             </p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a th:href="@{/dashboard}" sec:authorize="hasAnyAuthority('ADMIN','MANAGER','DEVELOPER')" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Панель управления
+                            </p>
+                        </a>
+                    </li>
 
                     <li class="nav-item">
                         <a th:href="@{/tasks}" sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Задачи
-<!--                                <span class="right badge badge-danger">New</span>-->
                             </p>
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a th:href="@{/time}" sec:authorize="hasAnyAuthority('ADMIN')" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Учёт времени
+                            </p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
-            <!-- /.sidebar-menu -->
         </div>
-        <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
+
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+
         <div class="content-header">
             <div class="container-fluid">
 <!--                <div class="row mb-2">-->

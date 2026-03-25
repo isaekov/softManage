@@ -1,0 +1,1 @@
+docker exec postgres pg_dump -U postgres > postgres/init/001-init.sql
