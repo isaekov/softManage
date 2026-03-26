@@ -1,57 +1,76 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
 
-<h1>Dashboard</h1>
 
 <h3>Общая статистика</h3>
 
-<ul>
-    <li>Всего задач: <span th:text="${total}"></span></li>
-    <li>Новые: <span th:text="${newTasks}"></span></li>
-    <li>В работе: <span th:text="${inProgress}"></span></li>
-    <li>Готово: <span th:text="${done}"></span></li>
-</ul>
+<div class="row">
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3 th:text="${total}"></h3>
+
+                <p>Всего задач</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-bag"></i>
+            </div>
+
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-success">
+            <div class="inner">
+                <h3 th:text="${newTasks}"></h3>
+
+                <p>Новые</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-warning">
+            <div class="inner">
+                <h3 th:text="${inProgress}"></h3>
+
+                <p>В работе</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-person-add"></i>
+            </div>
+
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+            <div class="inner">
+                <h3 th:text="${done}"></h3>
+
+                <p>Готово</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+            </div>
+
+        </div>
+    </div>
+    <!-- ./col -->
+</div>
+<br/>
 
 <h3>Задачи по пользователям</h3>
 
-<canvas id="chart" width="400" height="200"></canvas>
-
-<script th:inline="javascript">
-    // let data = [[${tasksByUser}]];
-    //
-    // let labels = Object.keys(data);
-    // let values = Object.values(data);
-    //
-    // console.log("ildar", labels)
-    //
-    // new Chart(document.getElementById('chart'), {
-    //     type: 'bar',
-    //     data: {
-    //         labels: labels,
-    //         datasets: [{
-    //             label: 'Количество задач',
-    //             data: values
-    //         }]
-    //     }
-    // });
-</script>
-
-<br/>
-
-<a href="/tasks">Назад</a>
-
-</body>
-</html>
-
-
 <div class="card card-danger">
     <div class="card-header">
-        <h3 class="card-title">Donut Chart</h3>
+        <h3 class="card-title">Donut Chasdfart</h3>
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -77,29 +96,25 @@
     </div>
     <!-- /.card-body -->
 </div>
+
+<a href="/tasks">Назад</a>
 <th:block th:fragment="scripts">
-<script >
-
-    let data = [[${tasksByUser}]];
-
-    let labels = Object.keys(data);
-    let values = Object.values(data);
+<script th:inline="javascript">
 
     $(document).ready(function () {
+        let data = [[${tasksByUser}]];
+        console.log(data)
 
+        let labels = Object.keys(data);
+        let values = Object.values(data);
+        console.log('labels', labels)
 
-
-        console.log("ildar1", labels)
-        //-------------
-        //- DONUT CHART -
-        //-------------
-        // Get context with jQuery - using jQuery's .get() method.
         var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
         var donutData = {
             labels: labels,
             datasets: [
                 {
-                    data: [700, 500, 400, 600, 300, 100],
+                    data: values,
                     backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
                 }
             ]
@@ -115,6 +130,7 @@
             data: donutData,
             options: donutOptions
         })
+
     })
 </script>
 </th:block>
