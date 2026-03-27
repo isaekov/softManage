@@ -1,34 +1,36 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Мои задачи</title>
-</head>
-<body>
-
 <h1>Мои задачи</h1>
-
-<table border="1">
-
-    <tr>
-        <th>Название</th>
-        <th>Статус</th>
-        <th>Действие</th>
-    </tr>
-
-    <tr th:each="t : ${tasks}">
-        <td th:text="${t.title}"></td>
-        <td th:text="${t.status}"></td>
-
-        <td>
-            <a th:href="@{/tasks/{id}(id=${t.id})}">Открыть</a>
-        </td>
-    </tr>
-
-</table>
 
 <br/>
 
-<a href="/tasks">Назад</a>
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Список проектов</h3>
+            <div class="card-tools">
+                <a th:href="@{/projects/create}" class="btn btn-block btn-outline-primary btn-sm">Создать проект</a>
+            </div>
+        </div>
 
-</body>
-</html>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Название</th>
+                    <th>Статус</th>
+                    <th>Действие</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr th:each="t : ${tasks}">
+                    <td th:text="${t.id}"></td>
+                    <td th:text="${t.title}"></td>
+                    <td th:text="${t.status.label}"></td>
+                    <td> <a th:href="@{/tasks/{id}(id=${t.id})}"> Посмотреть</a> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

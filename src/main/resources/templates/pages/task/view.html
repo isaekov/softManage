@@ -15,7 +15,7 @@
                         <dt>Статус</dt>
                         <dd th:text="${task.status.label}"></dd>
                         <dt>Исполнитель</dt>
-                        <dd th:text="${task.assignee != null ? task.assignee.namme : 'Не назначен'}"></dd>
+                        <dd th:text="${task.assigned != null ? task.assigned.name : 'Не назначен'}"></dd>
                     </dl>
                 </div>
             </div>
