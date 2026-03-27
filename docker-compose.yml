@@ -1,5 +1,26 @@
 version: '3.8'
 services:
+
+  app:
+    build: .
+    container_name: course-app
+    ports:
+      - "8080:9999"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      # Подключаемся к сервису 'postgres' (имя сервиса работает как хост)
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-soft}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-user}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-123}
+      # Для курсового удобно использовать 'update', чтобы таблицы создались сами
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      - postgres
+    networks:
+      - postgres
+    restart: unless-stopped
+
+
   postgres:
     container_name: postgres
     image: postgres
