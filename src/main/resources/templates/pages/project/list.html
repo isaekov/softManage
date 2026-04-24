@@ -1,9 +1,9 @@
-<div class="col-md-6">
+<div class="col-md-6" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Список проектов</h3>
             <div class="card-tools">
-                <a th:href="@{/projects/create}" class="btn btn-block btn-outline-primary btn-sm">Создать проект</a>
+                <a th:href="@{/projects/create}" sec:authorize="hasAnyAuthority('ADMIN','MANAGER')" class="btn btn-block btn-outline-primary btn-sm">Создать проект</a>
             </div>
         </div>
 

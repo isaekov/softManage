@@ -34,7 +34,7 @@
                             </i>
                             Открыть
                         </a>
-                        <a class="btn btn-info btn-xs" th:href="@{/tasks/{id}/edit(id=${t.id})}">
+                        <a class="btn btn-info btn-xs" sec:authorize="hasAnyAuthority('ADMIN','MANAGER')" th:href="@{/tasks/{id}/edit(id=${t.id})}">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Изменить

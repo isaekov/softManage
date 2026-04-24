@@ -53,7 +53,7 @@ public class SecurityConfig {
                         .requestMatchers("/login", "/plugins/**", "/dist/**").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/admin/**").hasAnyAuthority("ADMIN")
-                        .requestMatchers("/projects/**").hasAnyAuthority("ADMIN", "PROJECT_MANAGER")
+//                        .requestMatchers("/projects/**").hasAnyAuthority("ADMIN", "PROJECT_MANAGER")
                         .requestMatchers("/tasks/**").authenticated()
                         .anyRequest().authenticated()
                 )

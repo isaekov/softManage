@@ -7,7 +7,6 @@ import ru.hwru.softmanage.dto.UserDto;
 import ru.hwru.softmanage.dto.UserRequest;
 import ru.hwru.softmanage.entity.Position;
 import ru.hwru.softmanage.entity.Role;
-import ru.hwru.softmanage.entity.Task;
 import ru.hwru.softmanage.entity.User;
 import ru.hwru.softmanage.repository.PositionRepository;
 import ru.hwru.softmanage.repository.RoleRepository;
@@ -17,6 +16,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+// Сервис для управления пользователями системы
 @Service
 public class UserService {
 
@@ -25,34 +25,47 @@ public class UserService {
     private final PositionRepository positionRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, RoleRepository roleRepository, PositionRepository positionRepository, PasswordEncoder passwordEncoder) {
+    public UserService(
+            UserRepository userRepository,
+            RoleRepository roleRepository,
+            PositionRepository positionRepository,
+            PasswordEncoder passwordEncoder
+    ) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.positionRepository = positionRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
+    // Метод создания пользователя
     @Transactional
-    public UserDto createUser(UserRequest request) {
+    public void createUser(UserRequest request) {
         User user = new User();
+
+        // Установка имени пользователя
         user.setUsername(request.getUsername());
+
+        // Шифрование пароля перед сохранением
         user.setPassword(passwordEncoder.encode(request.getPassword()));
+
+        // Установка email
         user.setEmail(request.getEmail());
         user.setName(request.getName());
         user.setLastname(request.getLastname());
+
+        // Назначение ролей пользователю
         user.setRoles(resolveRoles(request.getRoles()));
         user.setPositions(resolvePositions(request.getPositions()));
 
+        // Сохранение
         userRepository.save(user);
-        return UserDto.from(user);
+        UserDto.from(user);
     }
 
+    // Метод редактирования пользователя
     @Transactional
-    public UserDto editUser(Long id, UserRequest request) {
+    public void editUser(Long id, UserRequest request) {
         User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
-
-        System.out.println("Ildar");
-        System.out.println(request.getEmail());
 
         if (request.getUsername() != null) user.setUsername(request.getUsername());
         if (request.getPassword() != null) user.setPassword(passwordEncoder.encode(request.getPassword()));
@@ -61,7 +74,7 @@ public class UserService {
         if (request.getRoles() != null) user.setRoles(resolveRoles(request.getRoles()));
         if (request.getPositions() != null) user.setPositions(resolvePositions(request.getPositions()));
 
-        return UserDto.from(user);
+        UserDto.from(user);
     }
 
     private Set<Role> resolveRoles(Set<String> roleNames) {

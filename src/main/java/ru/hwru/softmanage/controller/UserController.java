@@ -23,14 +23,14 @@ public class UserController {
         this.roleRepository = roleRepository;
     }
 
-    // 📋 список пользователей
+    // список пользователей
     @GetMapping
     public String list(Model model) {
         model.addAttribute("users", userService.findAll());
         return "layout";
     }
 
-    // ➕ форма создания
+    // форма создания
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("user", new UserRequest());
@@ -38,20 +38,23 @@ public class UserController {
         return "layout";
     }
 
-    // 💾 сохранение
+    // сохранение
     @PostMapping("/create")
     public String create(@ModelAttribute UserRequest request) {
         userService.createUser(request);
         return "redirect:/users";
     }
 
-    // ✏️ форма редактирования
+    // форма редактирования
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable Long id, Model model) {
 
         User user = userService.findById(id);
 
         UserRequest request = new UserRequest();
+        request.setName(user.getName());
+        request.setLastname(user.getLastname());
+
         request.setUsername(user.getUsername());
         request.setEmail(user.getEmail());
 
@@ -68,7 +71,7 @@ public class UserController {
         return "layout";
     }
 
-    // 💾 обновление
+    // обновление
     @PostMapping("/{id}/edit")
     public String edit(@PathVariable Long id,
                        @ModelAttribute UserRequest request) {

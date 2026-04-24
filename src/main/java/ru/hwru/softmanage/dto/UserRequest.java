@@ -8,7 +8,6 @@ public class UserRequest {
     private String password;
     private String email;
     private String name;
-
     private String lastname;
     private Set<String> roles;
     private Set<String> positions;
