@@ -1,251 +1,11 @@
 --
--- PostgreSQL database cluster dump
---
-
-\restrict ZCwaG1MMdhRy3ecGqe1il3PqJQiPUzBaxxo58cGab0pxAdUJo95g5sGgPuUfTAE
-
-SET default_transaction_read_only = off;
-
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-
---
--- Drop databases (except postgres and template1)
---
-
-DROP DATABASE soft;
-
-
-
-
---
--- Drop roles
---
-
-DROP ROLE "user";
-
-
---
--- Roles
---
-
-CREATE ROLE "user";
-ALTER ROLE "user" WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS PASSWORD 'SCRAM-SHA-256$4096:HtaT+PqibgME1M+iR4i2QQ==$WoV2PZHgA03A5+VJKIyjS59Wi/gYPt3cEa8nZDyLylo=:t4+onhOG85YnoshyTnYKOfkCeWgxNWG2z+AZyFZ8FY8=';
-
---
--- User Configurations
---
-
-
-
-
-
-
-
-
-\unrestrict ZCwaG1MMdhRy3ecGqe1il3PqJQiPUzBaxxo58cGab0pxAdUJo95g5sGgPuUfTAE
-
---
--- Databases
---
-
---
--- Database "template1" dump
---
-
---
 -- PostgreSQL database dump
 --
 
-\restrict PQRnr8XUd54xfM7fDF3EF00P7M4MSLiNUfRQ0bfMlPpIF56byccHme4NLhohgZR
+\restrict odSQAcmIF8ckDuc5yWvogD5NutpuYIUEGiONvVUzqHxf955ZeN9KR9LuSGO95hv
 
 -- Dumped from database version 18.3 (Debian 18.3-1.pgdg13+1)
 -- Dumped by pg_dump version 18.3 (Debian 18.3-1.pgdg13+1)
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
-UPDATE pg_catalog.pg_database SET datistemplate = false WHERE datname = 'template1';
-DROP DATABASE template1;
---
--- Name: template1; Type: DATABASE; Schema: -; Owner: user
---
-
-CREATE DATABASE template1 WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'en_US.utf8';
-
-
-ALTER DATABASE template1 OWNER TO "user";
-
-\unrestrict PQRnr8XUd54xfM7fDF3EF00P7M4MSLiNUfRQ0bfMlPpIF56byccHme4NLhohgZR
-\connect template1
-\restrict PQRnr8XUd54xfM7fDF3EF00P7M4MSLiNUfRQ0bfMlPpIF56byccHme4NLhohgZR
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- Name: DATABASE template1; Type: COMMENT; Schema: -; Owner: user
---
-
-COMMENT ON DATABASE template1 IS 'default template for new databases';
-
-
---
--- Name: template1; Type: DATABASE PROPERTIES; Schema: -; Owner: user
---
-
-ALTER DATABASE template1 IS_TEMPLATE = true;
-
-
-\unrestrict PQRnr8XUd54xfM7fDF3EF00P7M4MSLiNUfRQ0bfMlPpIF56byccHme4NLhohgZR
-\connect template1
-\restrict PQRnr8XUd54xfM7fDF3EF00P7M4MSLiNUfRQ0bfMlPpIF56byccHme4NLhohgZR
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- Name: DATABASE template1; Type: ACL; Schema: -; Owner: user
---
-
-REVOKE CONNECT,TEMPORARY ON DATABASE template1 FROM PUBLIC;
-GRANT CONNECT ON DATABASE template1 TO PUBLIC;
-
-
---
--- PostgreSQL database dump complete
---
-
-\unrestrict PQRnr8XUd54xfM7fDF3EF00P7M4MSLiNUfRQ0bfMlPpIF56byccHme4NLhohgZR
-
---
--- Database "postgres" dump
---
-
---
--- PostgreSQL database dump
---
-
-\restrict Cg18eJyoexiwfX7jhiOHdZ0gczovU6nhQFX5PqDDp84LTuxzNVafACEYporWZ4N
-
--- Dumped from database version 18.3 (Debian 18.3-1.pgdg13+1)
--- Dumped by pg_dump version 18.3 (Debian 18.3-1.pgdg13+1)
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
-DROP DATABASE postgres;
---
--- Name: postgres; Type: DATABASE; Schema: -; Owner: user
---
-
-CREATE DATABASE postgres WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'en_US.utf8';
-
-
-ALTER DATABASE postgres OWNER TO "user";
-
-\unrestrict Cg18eJyoexiwfX7jhiOHdZ0gczovU6nhQFX5PqDDp84LTuxzNVafACEYporWZ4N
-\connect postgres
-\restrict Cg18eJyoexiwfX7jhiOHdZ0gczovU6nhQFX5PqDDp84LTuxzNVafACEYporWZ4N
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- Name: DATABASE postgres; Type: COMMENT; Schema: -; Owner: user
---
-
-COMMENT ON DATABASE postgres IS 'default administrative connection database';
-
-
---
--- PostgreSQL database dump complete
---
-
-\unrestrict Cg18eJyoexiwfX7jhiOHdZ0gczovU6nhQFX5PqDDp84LTuxzNVafACEYporWZ4N
-
---
--- Database "soft" dump
---
-
---
--- PostgreSQL database dump
---
-
-\restrict 1YxnVFAqCJ5BSAd2jOXyWQP17UUyb50gsCJh8DN6zy2fiMErZTrcYciljjbKnXN
-
--- Dumped from database version 18.3 (Debian 18.3-1.pgdg13+1)
--- Dumped by pg_dump version 18.3 (Debian 18.3-1.pgdg13+1)
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- Name: soft; Type: DATABASE; Schema: -; Owner: user
---
-
-CREATE DATABASE soft WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'en_US.utf8';
-
-
-ALTER DATABASE soft OWNER TO "user";
-
-\unrestrict 1YxnVFAqCJ5BSAd2jOXyWQP17UUyb50gsCJh8DN6zy2fiMErZTrcYciljjbKnXN
-\connect soft
-\restrict 1YxnVFAqCJ5BSAd2jOXyWQP17UUyb50gsCJh8DN6zy2fiMErZTrcYciljjbKnXN
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -518,6 +278,7 @@ COPY public.projects (id, budget, description, end_date, name, start_date, statu
 3	210000.00	Обмен данными между внутренней системой и 1С	2026-03-20	Интеграция с 1С	2025-11-10	COMPLETED
 4	420000.00	Корпоративный трекер для команды разработки	2026-07-01	Внутренняя система учёта задач	2026-03-01	PLANNING
 5	180000.00	Построение дашбордов в Power BI	2026-05-10	Анализ данных клиентов	2026-02-10	ON_HOLD
+6	\N	Первый	\N	Первый	\N	DRAFT
 \.
 
 
@@ -539,12 +300,8 @@ COPY public.roles (id, label, name) FROM stdin;
 --
 
 COPY public.task_comment (id, created_at, text, task_id, user_id) FROM stdin;
-1	2026-03-25 20:40:15.460117	Добавить не много	1	1
-2	2026-03-25 20:40:24.404684	можно еще\r\n	1	1
-3	2026-03-25 21:15:43.405889	Привет	1	1
-4	2026-03-25 21:17:23.355682	Привет	8	1
-5	2026-03-25 21:17:33.780243	фывафыва	8	1
-6	2026-03-25 21:17:37.751133	фывафыва	8	1
+14	2026-05-12 16:17:32.615712	Коммент	29	1
+15	2026-05-12 16:31:49.146797	завершил 	29	1
 \.
 
 
@@ -553,25 +310,14 @@ COPY public.task_comment (id, created_at, text, task_id, user_id) FROM stdin;
 --
 
 COPY public.tasks (id, deadline, description, priority, status, title, assignee_id, project_id) FROM stdin;
-1	2026-02-10	Figma, утвердить с заказчиком	HIGH	DONE	Создать макет главной страницы	\N	1
-2	2026-03-05	HTML + валидация + отправка на бэк	MEDIUM	IN_PROGRESS	Разработать форму записи	\N	1
-3	\N	VPS + Let's Encrypt	LOW	NEW	Настроить хостинг и SSL	\N	1
-4	2026-03-20	Установить код, настроить цели	MEDIUM	NEW	Подключить аналитику (Яндекс.Метрика)	\N	1
-5	2026-02-28	REST, JWT, документация в Swagger	HIGH	IN_PROGRESS	Спроектировать архитектуру API	\N	2
-6	2026-03-15	React Native, работа с состоянием	MEDIUM	IN_PROGRESS	Реализовать экран корзины	\N	2
-7	\N	Проверка на iPhone 12–15	HIGH	NEW	Тестирование на iOS-устройствах	\N	2
-8	2026-04-01	Кэширование, lazy load	LOW	STALLED	Оптимизация загрузки изображений	\N	2
-9	2026-01-20	1C + Java-сервис	HIGH	DONE	Написать обработчик выгрузки	\N	3
-10	2026-02-10	Полный цикл: создание → передача → приём	MEDIUM	DONE	Протестировать обмен данными	\N	3
-11	2026-02-25	Техническое описание для поддержки	LOW	DONE	Документировать интеграцию	\N	3
-12	2026-03-10	Интервью с разработчиками и менеджерами	HIGH	DONE	Собрать требования от команды	\N	4
-13	2026-03-12	Spring Boot vs Node.js	MEDIUM	DONE	Выбрать стек технологий	\N	4
 14	2026-02-28	Выгрузка за 2025 год	HIGH	IN_PROGRESS	Собрать исходные данные из CRM	\N	5
 15	\N	Связи, меры, визуализация	MEDIUM	STALLED	Построить модель в Power BI	\N	5
-16	\N	Баг при нажатии кнопки сохранить	\N	NEW	Исправить баг	2	1
 17	\N	Figma, утвердить с заказчиком	\N	DONE	Создать макет главной страницы	\N	1
-18	\N	Figma, утвердить с заказчиком	\N	STALLED	Создать макет главной страницы	10	1
 19	\N	1C + Java-сервис	\N	IN_PROGRESS	Написать обработчик выгрузки	6	3
+21	\N	Spring Boot vs Node.js	\N	NEW	Выбрать стек технологий	1	4
+20	\N	Figma, утвердить с заказчиком	\N	STALLED	Создать макет главной страницы	1	1
+30	\N	второй таск	\N	DONE	второй таск	8	6
+29	\N	Для первого	\N	DONE	Для первого	3	6
 \.
 
 
@@ -580,28 +326,6 @@ COPY public.tasks (id, deadline, description, priority, status, title, assignee_
 --
 
 COPY public.time_entries (id, hours, work_date, task_id) FROM stdin;
-1	3.50	2026-02-05	1
-2	2.00	2026-02-08	1
-3	4.00	2026-02-25	2
-4	3.00	2026-02-26	2
-5	1.50	2026-02-27	2
-6	2.00	2026-03-01	2
-7	6.00	2026-02-20	5
-8	2.50	2026-02-22	5
-9	4.00	2026-03-01	6
-10	3.50	2026-03-02	6
-11	2.00	2026-03-05	6
-12	1.00	2026-03-10	6
-13	2.00	2026-02-18	8
-14	8.00	2026-01-15	9
-15	4.00	2026-01-18	9
-16	3.00	2026-01-25	10
-17	5.00	2026-02-01	10
-18	2.00	2026-02-05	10
-19	4.00	2026-02-20	11
-20	3.00	2026-03-05	12
-21	2.00	2026-03-07	12
-22	4.00	2026-03-11	13
 23	5.00	2026-02-15	14
 24	3.00	2026-02-18	14
 25	2.50	2026-02-20	14
@@ -610,6 +334,7 @@ COPY public.time_entries (id, hours, work_date, task_id) FROM stdin;
 28	3.00	2026-02-12	15
 29	2.00	2026-02-14	15
 30	1.00	2026-02-16	15
+32	22.00	2026-05-12	29
 \.
 
 
@@ -618,21 +343,11 @@ COPY public.time_entries (id, hours, work_date, task_id) FROM stdin;
 --
 
 COPY public.user_positions (user_id, position_id) FROM stdin;
-2	2
-2	3
 3	3
-4	4
-5	5
 6	2
 6	3
-7	2
 8	3
-9	4
-9	5
 1	6
-10	5
-11	2
-11	3
 \.
 
 
@@ -651,17 +366,10 @@ COPY public.user_roles (user_id, role_id) FROM stdin;
 --
 
 COPY public.users (id, active, email, lastname, name, password, username, assignee_id) FROM stdin;
-1	t	admin@hwru.ru	Исаеков	Ильдар	$2a$10$lRe5OvvqppbI/4i5/F2/d.U1QXxxX12bFgchlkJM87QjJ9Bc.Yp0y	admin	\N
-2	t	user1@example.com	Первый	Первый	$2a$10$XcF6Z7qWvKJ8fQ9sR2tU.Oe3mN4pL5rS6uV7wY8zA9bB0cC1dD2eE	user1	\N
-10	t	user9@example.com	Девятый	Девятый	$2a$10$FkN4h5yEzRQ6nY7aZ0bB.Wm1uV2xT3zA4cC5dD6eE7fF8gG9hH0iI	user9	\N
-8	t	user7@example.com	Седьмой	Седьмой	$2a$10$DiL2f3wCzPO4lW5yX8zZ.Uk9sT0vR1xY2aA3bB4cC5dD6eE7fF8gG	user7	\N
-4	t	user3@example.com	Третий	Третий	$2a$10$ZeH8b9sYxLK0hS1uT4vV.Qg5oP6rN7tU8wX9yA0zB1cC2dD3eE4fF	user3	\N
-3	t	user2@example.com	Второй	Второй	$2a$10$YdG7a8rXwKJ9gR0tS3uU.Pf4nO5qM6sT7vW8xZ9yA0bB1cC2dD3eE	user2	\N
-9	t	user8@example.com	Восьмой	Восьмой	$2a$10$EjM3g4xDzQP5mX6zY9aA.Vl0tU1wS2yZ3bB4cC5dD6eE7fF8gG9hH	user8	\N
-7	t	user6@example.com	Шестой	Шестой	$2a$10$ChK1e2vBzON3kV4xW7yY.Tj8rS9uQ0wX1zA2bB3cC4dD5eE6fF7gG	user6	\N
-11	t	user10@example.com	Десятый	Десятый	$2a$10$GlO5i6zFzSR7oZ8bA1cC.Xn2vW3yU4aB5dD6eE7fF8gG9hH0iI1jJ	user10	\N
-5	t	user4@example.com	Четвёртый	Четвёртый	$2a$10$AfI9c0tZyML1iT2vU5wW.Rh6pQ7sO8uV9xY0zA1bB2cC3dD4eE5fF	user4	\N
-6	t	user5@example.com	Пятый	Пятый	$2a$10$BgJ0d1uAzNM2jU3wV6xX.Si7qR8tP9vW0yZ1aA2bB3cC4dD5eE6fF	user5	\N
+8	t	user7@example.com	Сергеев	Сергей	$2a$10$DiL2f3wCzPO4lW5yX8zZ.Uk9sT0vR1xY2aA3bB4cC5dD6eE7fF8gG	user7	\N
+6	t	user5@example.com	Айратов	Айрат	$2a$10$BgJ0d1uAzNM2jU3wV6xX.Si7qR8tP9vW0yZ1aA2bB3cC4dD5eE6fF	user5	\N
+3	t	user2@example.com	Илгамов	Илгам	$2a$10$YdG7a8rXwKJ9gR0tS3uU.Pf4nO5qM6sT7vW8xZ9yA0bB1cC2dD3eE	user2	\N
+1	t	admin@hwru.ru	Исаеков	Ильдар	$2a$10$sAGzUxULTb9TmQLG6WXe..7f0JV28afZJmBkc0mNRE6UyONe5kU0u	admin	\N
 \.
 
 
@@ -886,9 +594,5 @@ ALTER TABLE ONLY public.tasks
 -- PostgreSQL database dump complete
 --
 
-\unrestrict 1YxnVFAqCJ5BSAd2jOXyWQP17UUyb50gsCJh8DN6zy2fiMErZTrcYciljjbKnXN
-
---
--- PostgreSQL database cluster dump complete
---
+\unrestrict odSQAcmIF8ckDuc5yWvogD5NutpuYIUEGiONvVUzqHxf955ZeN9KR9LuSGO95hv
 
