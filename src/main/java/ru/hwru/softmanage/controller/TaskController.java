@@ -1,17 +1,21 @@
 package ru.hwru.softmanage.controller;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.hwru.softmanage.dto.TaskRequest;
 import ru.hwru.softmanage.entity.Task;
+import ru.hwru.softmanage.entity.User;
 import ru.hwru.softmanage.enums.TaskStatus;
+import ru.hwru.softmanage.security.CustomUserDetails;
 import ru.hwru.softmanage.service.ProjectService;
 import ru.hwru.softmanage.service.TaskCommentService;
 import ru.hwru.softmanage.service.TaskService;
 import ru.hwru.softmanage.service.UserService;
 
 import java.security.Principal;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/tasks")
@@ -37,12 +41,22 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public String view(@PathVariable Long id, Model model) {
+    public String view(@PathVariable Long id, Model model,  Authentication auth) {
 
         Task task = taskService.findById(id);
 
+        String username = auth.getName(); // возвращает логин
+        User currentUser = userService.findByUsername(username);
+
+        // Проверяем: это исполнитель ИЛИ админ?
+        boolean canEdit = task.getAssigned() != null
+                && task.getAssigned().getId().equals(currentUser.getId())
+                || currentUser.getRoles().stream()
+                .anyMatch(r -> "ADMIN".equals(r.getName()));
+
         model.addAttribute("task", task);
         model.addAttribute("comments", taskCommentService.getByTask(id));
+        model.addAttribute("canEditTask", canEdit);
 
         return "layout";
     }
@@ -118,6 +132,7 @@ public class TaskController {
         model.addAttribute("newTasks", taskService.findByStatus(TaskStatus.NEW));
         model.addAttribute("inProgressTasks", taskService.findByStatus(TaskStatus.IN_PROGRESS));
         model.addAttribute("doneTasks", taskService.findByStatus(TaskStatus.DONE));
+        model.addAttribute("users", userService.findAll());
 
         return "layout";
     }

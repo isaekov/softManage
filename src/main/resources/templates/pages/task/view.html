@@ -42,16 +42,13 @@
         <!-- /.card-footer -->
         <div class="card-footer">
             <form th:action="@{/tasks/{id}/comments(id=${task.id})}" method="post">
-
             <!-- .img-push is used to add margin to elements next to floating images -->
-
-                <div class="input-group">
+                <div class="input-group" th:if="${canEditTask}">
                     <input type="text" name="text" placeholder="" class="form-control">
                     <span class="input-group-append">
                       <button type="submit" class="btn btn-success">Отправить</button>
                     </span>
                 </div>
-
             </form>
         </div>
         <!-- /.card-footer -->
