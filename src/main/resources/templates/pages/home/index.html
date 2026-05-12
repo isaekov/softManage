@@ -115,34 +115,39 @@
 <a href="/tasks">Назад</a>
 <th:block th:fragment="scripts">
     <script th:inline="javascript">
-
         $(document).ready(function () {
             let data = [[${tasksByUser}]];
-
             let labels = Object.keys(data);
             let values = Object.values(data);
 
-            var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+            // Расширенная палитра в стиле AdminLTE (10 цветов, зацикливается автоматически)
+            const palette = [
+                '#17a2b8', '#dc3545', '#605ca8', '#28a745', '#ffc107',
+                '#007bff', '#fd7e14', '#20c997', '#e83e8c', '#6c757d'
+            ];
+
+            var donutChartCanvas = $('#donutChart').get(0).getContext('2d');
             var donutData = {
                 labels: labels,
-                datasets: [
-                    {
-                        data: values,
-                        backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de', '#d2d6de'],
-                    }
-                ]
-            }
+                datasets: [{
+                    data: values,
+                    backgroundColor: palette,
+                    borderWidth: 1,
+                    borderColor: '#ffffff'
+                }]
+            };
             var donutOptions = {
                 maintainAspectRatio: false,
                 responsive: true,
-            }
+                legend: { position: 'bottom', labels: { boxWidth: 12 } },
+                cutoutPercentage: 60
+            };
 
             new Chart(donutChartCanvas, {
                 type: 'doughnut',
                 data: donutData,
                 options: donutOptions
-            })
-
-        })
+            });
+        });
     </script>
 </th:block>
