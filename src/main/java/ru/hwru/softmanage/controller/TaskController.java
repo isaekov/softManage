@@ -1,5 +1,6 @@
 package ru.hwru.softmanage.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import ru.hwru.softmanage.service.UserService;
 import java.security.Principal;
 import java.util.Optional;
 
+@Slf4j
 @Controller
 @RequestMapping("/tasks")
 public class TaskController {
@@ -82,7 +84,7 @@ public class TaskController {
     public String edit(@PathVariable Long id, Model model) {
 
         Task task = taskService.findById(id);
-
+        System.out.println(task.getDeadline());
         TaskRequest request = new TaskRequest();
         request.setTitle(task.getTitle());
         request.setDescription(task.getDescription());

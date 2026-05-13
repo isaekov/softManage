@@ -35,6 +35,7 @@ public class Task {
     private User assigned;
 
 
+
     public Long getId() {
         return id;
     }
@@ -98,4 +99,6 @@ public class Task {
     public void setAssigned(User assigned) {
         this.assigned = assigned;
     }
+
+
 }

@@ -4,6 +4,7 @@ package ru.hwru.softmanage.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import ru.hwru.softmanage.entity.Task;
 import ru.hwru.softmanage.entity.User;
 import ru.hwru.softmanage.enums.TaskStatus;
 import ru.hwru.softmanage.repository.TaskRepository;
@@ -12,6 +13,7 @@ import ru.hwru.softmanage.service.ProjectService;
 import ru.hwru.softmanage.service.TaskService;
 import ru.hwru.softmanage.service.TimeEntryService;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,6 +45,11 @@ public class HomeController {
         long inProgress = taskRepository.countByStatus(TaskStatus.IN_PROGRESS);
         long done = taskRepository.countByStatus(TaskStatus.DONE);
 
+        List<Task> deadline = taskRepository.findByStatusIsNotAndDeadlineBefore(
+                TaskStatus.DONE,
+                LocalDate.now()
+        );
+
         List<User> users = userRepository.findAll();
 
         Map<String, Long> tasksByUser = new HashMap<>();
@@ -51,6 +58,7 @@ public class HomeController {
             tasksByUser.put(u.getName(), count);
         }
 
+        model.addAttribute("deadline", (long) deadline.size());
         model.addAttribute("total", total);
         model.addAttribute("newTasks", newTasks);
         model.addAttribute("inProgress", inProgress);

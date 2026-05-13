@@ -40,7 +40,7 @@ public class TaskService {
 
         task.setTitle(request.getTitle());
         task.setDescription(request.getDescription());
-
+        task.setDeadline(request.getDeadline());
 
         task.setStatus(request.getStatus());
         task.setProject(request.getProject());
@@ -61,6 +61,7 @@ public class TaskService {
 
         task.setTitle(request.getTitle());
         task.setDescription(request.getDescription());
+        task.setDeadline(request.getDeadline());
 
         task.setStatus(request.getStatus());
         task.setProject(request.getProject());

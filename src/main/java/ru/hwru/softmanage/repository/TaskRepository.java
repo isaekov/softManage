@@ -6,6 +6,7 @@ import ru.hwru.softmanage.entity.Project;
 import ru.hwru.softmanage.entity.Task;
 import ru.hwru.softmanage.enums.TaskStatus;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
@@ -19,4 +20,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     long countByStatus(TaskStatus status);
 
     long countByAssignedUsername(String assignedUsername);
+
+    List<Task> findByStatusIsNotAndDeadlineBefore(TaskStatus status, LocalDate deadline);
 }
+

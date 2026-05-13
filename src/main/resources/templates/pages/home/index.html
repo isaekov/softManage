@@ -20,7 +20,7 @@
     <!-- ./col -->
     <div class="col-lg-3 col-6">
         <!-- small box -->
-        <div class="small-box bg-danger">
+        <div class="small-box bg-secondary">
             <div class="inner">
                 <h3 th:text="${newTasks}"></h3>
 
@@ -77,13 +77,28 @@
 
         </div>
     </div>
+
+    <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+            <div class="inner">
+                <h3 th:text="${deadline}"></h3>
+
+                <p>Просроченные</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+            </div>
+
+        </div>
+    </div>
     <!-- ./col -->
 </div>
 <br/>
 
 <h3>Задачи по пользователям</h3>
 
-<div class="card card-danger">
+<div class="card card-white">
     <div class="card-header">
         <h3 class="card-title">Статистика</h3>
 
